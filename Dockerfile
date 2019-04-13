@@ -1,4 +1,4 @@
-FROM runmymind/docker-android-sdk
+FROM circleci/android:api-28
 MAINTAINER Kazunori Sakamoto
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,6 +13,7 @@ ENV CREATE_AVD_COMMAND="android create avd \
  --force"
 
 RUN apt-get update -q \
+  && echo "$PATH" \
   && apt-get dist-upgrade -y -q \
   && apt-get install -y -q tzdata build-essential curl wget dirmngr zip unzip dos2unix \
   && apt-get update -q \
